@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{cliente?.id ? 'Editando': 'Inserindo'}} usuário</h5>
+</div>
+<div class="modal-body m-3">
+
+  <form [formGroup]="formGroup" *ngIf="formGroup">
+
+    <div class="row">
+      <!-- Campo de Nome -->
+      <div class=" col-md-12 mt-1 form-group">
+        <label class="form-control-label">Nome</label>
+        <input type="text" class="form-control" formControlName="name">
+        <app-message-valid-control [control]="name!"> </app-message-valid-control>
+      </div>
+
+      <!-- Campo de E-mail -->
+      <div class="col-md-12 mt-1 form-group">
+        <label class="form-control-label">E-mail</label>
+        <input type="email" class="form-control" formControlName="email">
+        <app-message-valid-control [control]="email!"> </app-message-valid-control>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Campo de Nome -->
+      <div class=" col-md-12 mt-1 form-group">
+        <label class="form-control-label">Endereço</label>
+        <input type="text" class="form-control" formControlName="address">
+        <app-message-valid-control [control]="address!"> </app-message-valid-control>
+      </div>
+
+      <!-- Mostra as informações de datas -->
+      <div class="col-md-6 mt-3 text-info" *ngIf="cliente?.dateInsert">
+        Data da Inclusão: {{cliente?.dateInsert | date : 'dd/MM/yyyy HH:mm:ss'}}
+      </div>
+      <div class="col-md-6 mt-3 text-info" *ngIf="cliente?.dateUpdate">
+        Data da Atualização: {{cliente?.dateUpdate | date : 'dd/MM/yyyy HH:mm:ss'}}
+      </div>
+    </div>
+
+  </form>
+
+</div>
+<div class="modal-footer">
+  <!-- Botão para salvar o usuário -->
+  <button class="btn btn-success" (click)="salvar()">
+    <i class="fa fa-save mr-2"></i>
+    Salvar
+  </button>
+  <!-- Botão para excluír o usuário (só mostra se já tiver ID, senão não precisa excluir poir nem inseriu) -->
+  <button class="btn btn-danger" (click)="excluir()" *ngIf="cliente?.id">
+    <i class="fa fa-delete mr-2"></i>
+    Excluír
+  </button>
+</div>

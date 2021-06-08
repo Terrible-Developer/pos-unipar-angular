@@ -1,0 +1,9 @@
+Para a próxima aula vou deixar como "tarefa" fazer uma tela de cadastro de clientes, o menu até já está chamando uma rota `/clientes`.
+Criar um novo módulo para cliente, pode ir se baseando no módulo de usuários que foi desenvolvido.
+Criar uma tela para listar os usuários cadastrados.
+Criar um modal para cadastrar/alterar cliente.
+Campos => id, nome, endereço, etc.
+
+
+UPDATE
+FALTA MUDAR SÓ O MODAL DE CADASTRO E TESTAR CADASTRO E DELETE
